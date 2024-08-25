@@ -20,62 +20,70 @@
           <textarea id="ingredients" required></textarea>
         </div>
         <div>
-          <label for="instructions">Instructions:</label>
-          <textarea id="instructions" required></textarea>
-        </div>
-        <label for="dropdown">Välj typ av mått</label>
-        <select id="dropDown" name="dropdown">
-          <option value="g">g</option>
-          <option value="hg">hg</option>
-          <option value="ml">ml</option>
-          <option value="dl">dl</option>
-          <option value="msk">msk</option>
-          <option value="tsk">tsk</option>
-          <option value="krm">krm</option>
-          <option value="st">st</option>
-        </select>
-        <div>
-          <label for="instructions">Instructions:</label>
-          <textarea id="instructions" required></textarea>
+          <label for="dropdown">Measurement unit"</label>
+          <select id="dropDown" name="dropdown" required>
+            <option value="" selected hidden>Unit</option>
+            <option value="g">g</option>
+            <option value="hg">hg</option>
+            <option value="ml">ml</option>
+            <option value="dl">dl</option>
+            <option value="msk">msk</option>
+            <option value="tsk">tsk</option>
+            <option value="krm">krm</option>
+            <option value="st">st</option>
+          </select>
+          <label for="">Measurement</label>
+          <input type="text" />
+          <div>
+            <label for="instructions">Instructions:</label>
+            <textarea id="instructions" required></textarea>
+          </div>
         </div>
         <div id="upploadImg">
           <h4>Ladda upp ett foto</h4>
+          <img src="img/emptyplate.png.png" alt="Empty plate" id="emptyPhoto" />
           <input
             type="file"
             accept="image/jpeg. image/png, image/jpg"
             id="upploadBtn"
           />
         </div>
-        <div class="rating">
-          <label for="rating">Rating:</label>
-          <span class="star-rating">
-            <input type="radio" name="rating" value="1" id="star1" /><label
-              for="star1"
-              >★</label
-            >
-            <input type="radio" name="rating" value="2" id="star2" /><label
-              for="star2"
-              >★</label
-            >
-            <input type="radio" name="rating" value="3" id="star3" /><label
-              for="star3"
-              >★</label
-            >
-            <input type="radio" name="rating" value="4" id="star4" /><label
-              for="star4"
-              >★</label
-            >
-            <input type="radio" name="rating" value="5" id="star5" /><label
-              for="star5"
-              >★</label
-            >
-          </span>
-        </div>
+
         <button type="submit" id="submit-btn">Add Recipe</button>
       </form>
 
       <ul id="recipe-list"></ul>
     </div>
+
+    <!-- Jobbar på det när jag kommer hem -->
+    <!-- <div>
+      // Rating som ska vara i listan.
+      <div class="rating">
+        <label for="rating">Rating:</label>
+        <span class="star-rating">
+          <input type="radio" name="rating" value="1" id="star1" /><label
+            for="star1"
+            >★</label
+          >
+          <input type="radio" name="rating" value="2" id="star2" /><label
+            for="star2"
+            >★★</label
+          >
+          <input type="radio" name="rating" value="3" id="star3" /><label
+            for="star3"
+            >★★★</label
+          >
+          <input type="radio" name="rating" value="4" id="star4" /><label
+            for="star4"
+            >★★★★</label
+          >
+          <input type="radio" name="rating" value="5" id="star5" /><label
+            for="star5"
+            >★★★★★</label
+          >
+        </span>
+      </div>
+    </div> -->
 
     <script src="script.js"></script>
   </body>

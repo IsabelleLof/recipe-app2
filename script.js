@@ -16,6 +16,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const recipeList = document.getElementById("recipe-list");
   const recipeIdInput = document.getElementById("recipe-id");
   const submitBtn = document.getElementById("submit-btn");
+  const imgUploadBtn = document.getElementById("upploadBtn");
+  const imgSrc = document.getElementById("emptyPhoto");
+  let imageUrl = "";
 
   // Initialize the recipes array from localStorage or an empty array if not present
   let recipes = JSON.parse(localStorage.getItem("recipes")) || [];
@@ -31,6 +34,9 @@ document.addEventListener("DOMContentLoaded", () => {
       const li = document.createElement("li");
       li.innerHTML = `
                 <div>
+                <img src="${recipe.imageUrl}" alt="${
+        recipe.title
+      }" style="width:100px;height:auto;">
                     <strong>${recipe.title}</strong>
                     <p><em>Ingredients:</em> ${recipe.ingredients}</p>
                     <p><em>Instructions:</em> ${recipe.instructions}</p>
@@ -45,6 +51,12 @@ document.addEventListener("DOMContentLoaded", () => {
       recipeList.appendChild(li);
     });
   }
+
+  // Function to import image
+  imgUploadBtn.onchange = function () {
+    imageUrl = URL.createObjectURL(imgUploadBtn.files[0]);
+    imgSrc.src = imageUrl;
+  };
 
   // Function to render stars based on the rating
   function renderStars(rating) {
@@ -68,6 +80,8 @@ document.addEventListener("DOMContentLoaded", () => {
     recipeIdInput.value = "";
     document.querySelector('input[name="rating"]:checked').checked = false; // Reset the rating
     submitBtn.textContent = "Add Recipe";
+    imageUrl = "";
+    imgSrc.src = "img/emptyplate.png";
   }
 
   // Event listener for form submission

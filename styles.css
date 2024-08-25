@@ -1,4 +1,7 @@
 body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-family: Arial, sans-serif;
   background-color: #f4f4f4;
   margin: 0;
@@ -14,6 +17,7 @@ body {
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   width: 400px;
+  margin-top: 20px;
 }
 
 h1 {
@@ -90,4 +94,10 @@ li button.edit-btn {
 
 li button.edit-btn:hover {
   background-color: #e0a800;
+}
+
+#emptyPhoto {
+  width: 150px;
+  height: 150px;
+  border-radius: 20px;
 }
