@@ -2,7 +2,7 @@
 
 // - Add an image to each recipe
 
-// - Grade a recipe that is created
+// - Grade a recipe that is created - Isabelle
 
 // - Use Async/Await in our code
 
@@ -16,10 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const recipeList = document.getElementById("recipe-list");
   const recipeIdInput = document.getElementById("recipe-id");
   const submitBtn = document.getElementById("submit-btn");
-
-  // Add an image to each recipe
-
-  // Grade a recipe that is created
 
   // Initialize the recipes array from localStorage or an empty array if not present
   let recipes = JSON.parse(localStorage.getItem("recipes")) || [];
@@ -38,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     <strong>${recipe.title}</strong>
                     <p><em>Ingredients:</em> ${recipe.ingredients}</p>
                     <p><em>Instructions:</em> ${recipe.instructions}</p>
+                    <p><em>Rating:</em> ${renderStars(recipe.rating)}</p>
                 </div>
                 <div>
                     <button class="edit-btn" data-index="${index}">Edit</button>
@@ -49,6 +46,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
+  // Function to render stars based on the rating
+  function renderStars(rating) {
+    let stars = "";
+    for (let i = 1; i <= 5; i++) {
+      if (i <= rating) {
+        stars += "★"; // filled star
+      } else {
+        stars += "☆"; // empty star
+      }
+    }
+    return stars;
+  }
+
   // Function to reset the form inputs to their default state
   function resetForm() {
     // Clear the input fields and reset the form state
@@ -56,6 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ingredientsInput.value = "";
     instructionsInput.value = "";
     recipeIdInput.value = "";
+    document.querySelector('input[name="rating"]:checked').checked = false; // Reset the rating
     submitBtn.textContent = "Add Recipe";
   }
 
@@ -68,13 +79,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const title = titleInput.value;
     const ingredients = ingredientsInput.value;
     const instructions = instructionsInput.value;
+    const rating = document.querySelector('input[name="rating"]:checked').value; // Get the rating value
     const id = recipeIdInput.value;
 
     // If an ID exists, update the existing recipe; otherwise, add a new one
     if (id) {
-      recipes[id] = { title, ingredients, instructions };
+      recipes[id] = { title, ingredients, instructions, rating };
     } else {
-      recipes.push({ title, ingredients, instructions });
+      recipes.push({ title, ingredients, instructions, rating });
     }
 
     // Save the updated recipes array to localStorage
@@ -107,6 +119,12 @@ document.addEventListener("DOMContentLoaded", () => {
       ingredientsInput.value = recipe.ingredients;
       instructionsInput.value = recipe.instructions;
       recipeIdInput.value = index;
+
+      // Set the rating value
+      document.querySelector(
+        `input[name="rating"][value="${recipe.rating}"]`
+      ).checked = true;
+
       submitBtn.textContent = "Update Recipe";
     }
   });
