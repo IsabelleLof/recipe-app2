@@ -9,7 +9,6 @@
   <body>
     <div class="container">
       <h1>Recipe App</h1>
-
       <form id="recipe-form">
         <input type="hidden" id="recipe-id" />
         <div>
@@ -19,6 +18,10 @@
         <div>
           <label for="ingredients">Ingredients:</label>
           <textarea id="ingredients" required></textarea>
+        </div>
+        <div>
+          <label for="instructions">Instructions:</label>
+          <textarea id="instructions" required></textarea>
         </div>
         <label for="dropdown">Välj typ av mått</label>
         <select id="dropDown" name="dropdown">
@@ -42,24 +45,6 @@
             accept="image/jpeg. image/png, image/jpg"
             id="upploadBtn"
           />
-        </div>
-        <button type="submit" id="submit-btn">Add Recipe</button>
-      </form>
-      <h1>Recipe App</h1>
-
-      <form id="recipe-form">
-        <input type="hidden" id="recipe-id" />
-        <div>
-          <label for="title">Title:</label>
-          <input type="text" id="title" required />
-        </div>
-        <div>
-          <label for="ingredients">Ingredients:</label>
-          <textarea id="ingredients" required></textarea>
-        </div>
-        <div>
-          <label for="instructions">Instructions:</label>
-          <textarea id="instructions" required></textarea>
         </div>
         <div class="rating">
           <label for="rating">Rating:</label>
