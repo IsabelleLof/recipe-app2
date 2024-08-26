@@ -98,9 +98,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // If an ID exists, update the existing recipe; otherwise, add a new one
     if (id) {
-      recipes[id] = { title, ingredients, instructions, rating };
+      recipes[id] = { title, ingredients, instructions, rating, imageUrl };
     } else {
-      recipes.push({ title, ingredients, instructions, rating });
+      recipes.push({ title, ingredients, instructions, rating, imageUrl });
     }
 
     // Save the updated recipes array to localStorage
